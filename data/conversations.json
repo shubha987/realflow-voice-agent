@@ -21,5 +21,51 @@
     "conversation_summary": "A user contacted Premium Brokers Inc. expressing interest in buying a home. The AI agent clarified that the company specializes in commercial real estate but offered to assist or redirect the user, asking for more details on whether it was for a personal residence or investment property before the call ended.",
     "duration": null,
     "recording_url": "https://storage.vapi.ai/019a4d68-81e9-7dd3-8e5f-44c3ddd6311b-1762235335454-50aead45-a0aa-4ec6-b163-cfc9e0b2d54d-mono.wav"
+  },
+  {
+    "call_id": "019a5015-2bc4-7003-a93b-5eef03933cbe",
+    "timestamp": "2025-11-04 23:46:52.664771",
+    "caller_info": {
+      "name": null,
+      "phone": null,
+      "email": null,
+      "role": "landlord",
+      "company": "Premium Brokers Inc."
+    },
+    "property_details": {
+      "asset_type": "residential",
+      "location": null,
+      "deal_size": null,
+      "square_footage": null,
+      "urgency": null,
+      "additional_details": "Caller wants to rent out their flat for residential purposes. The company specializes in commercial real estate and does not handle residential properties."
+    },
+    "inquiry_type": "leasing",
+    "conversation_summary": "The user called Premium Brokers Inc. to inquire about renting out their flat. However, the company specializes exclusively in commercial real estate, and therefore could not assist with the user's residential leasing request.",
+    "duration": null,
+    "recording_url": "https://storage.vapi.ai/019a5015-2bc4-7003-a93b-5eef03933cbe-1762280209030-9554a3b6-f74c-4bc7-9e2d-20eb7bd097d5-mono.wav"
+  },
+  {
+    "call_id": "019a501d-41dd-7bb0-8904-9bbbd4cd52e5",
+    "timestamp": "2025-11-04 23:56:05.965489",
+    "caller_info": {
+      "name": null,
+      "phone": null,
+      "email": null,
+      "role": "landlord",
+      "company": "Premium Brokers Inc"
+    },
+    "property_details": {
+      "asset_type": "residential",
+      "location": null,
+      "deal_size": null,
+      "square_footage": null,
+      "urgency": null,
+      "additional_details": "Caller wants to rent out a residential flat. The company primarily deals with commercial properties."
+    },
+    "inquiry_type": "leasing",
+    "conversation_summary": "The user called RealFlow, representing Premium Brokers Inc., to inquire about renting out their residential flat. The AI clarified that the company primarily deals with commercial properties and offered to recommend a residential specialist. The user then asked about the types of commercial properties the company handles before the call ended.",
+    "duration": null,
+    "recording_url": "https://storage.vapi.ai/019a501d-41dd-7bb0-8904-9bbbd4cd52e5-1762280761004-45b0281c-aba3-4184-9033-c8cf9449438d-mono.wav"
   }
 ]
