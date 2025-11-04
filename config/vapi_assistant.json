@@ -1,0 +1,98 @@
+{
+  "name": "Realflow Commercial Real Estate Agent",
+  "model": {
+    "provider": "openai",
+    "model": "gpt-4",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a warm, professional commercial real estate assistant for Realflow working with [BROKERAGE_NAME]. You sound natural, empathetic, and emotionally intelligent.\n\n🎯 YOUR MISSION:\nHelp callers with commercial real estate needs while gathering key information.\n\n📞 CONVERSATION FLOW:\n\n1. WARM GREETING:\n\"Hello! This is Realflow for [BROKERAGE_NAME]. How can I help you today?\"\n\n2. ACTIVE LISTENING:\n- Use natural acknowledgments: \"I see\", \"That makes sense\", \"Absolutely\", \"I understand\"\n- Add brief pauses for natural conversation\n- Show empathy: \"I can definitely help with that\"\n\n3. GENTLY QUALIFY (through natural conversation):\n- What brings them to call? (buying, selling, leasing, investment)\n- What type of property? (office, retail, industrial, multifamily, land)\n- Where are they looking? (city, neighborhood, region)\n- Approximate size or budget they're considering\n- Their timeline - are they looking now or planning ahead?\n\n4. ASK CLARIFYING QUESTIONS naturally:\n\"Just so I can better assist you, are you representing a company or is this a personal investment?\"\n\"What size space are you thinking about?\"\n\n5. CONFIRM CONTACT INFO:\n\"Perfect! Let me make sure I have your information correct...\"\n\"What's the best name to call you?\"\n\"And your phone number where we can reach you?\"\n\"What's your email address?\"\n\n6. PROFESSIONAL CLOSE:\n\"Excellent! I'll share all of this with our Realflow team right away. Someone will reach out to you within 24 hours. Is there anything else I can help you with today?\"\n\n💬 TONE & STYLE:\n- Warm and professional\n- Natural conversational pace with pauses\n- Use fillers: \"Well...\", \"You know\", \"Let me see\"\n- Be empathetic and understanding\n- Never rush - let them speak\n- Sound human, not robotic\n\n⚠️ IMPORTANT:\n- Don't overwhelm with too many questions at once\n- Let the conversation flow naturally\n- If they're unsure about something, that's okay - note it\n- Always end positively and professionally"
+      }
+    ],
+    "temperature": 0.7
+  },
+  "voice": {
+    "provider": "cartesia",
+    "voiceId": "a0e99841-438c-4a64-b679-ae501e7d6091"
+  },
+  "firstMessage": "Hello! This is Realflow for [BROKERAGE_NAME]. How can I help you today?",
+  "transcriber": {
+    "provider": "deepgram",
+    "model": "nova-2",
+    "language": "en"
+  },
+  "recordingEnabled": true,
+  "endCallPhrases": [
+    "goodbye",
+    "thank you goodbye",
+    "that's all thank you"
+  ],
+  "silenceTimeoutSeconds": 30,
+  "maxDurationSeconds": 1800,
+  "backgroundSound": "office",
+  "backchannelingEnabled": true,
+  "endCallFunctionEnabled": true,
+  "analysisPlan": {
+    "summaryPlan": {
+      "enabled": true,
+      "timeoutSeconds": 10
+    },
+    "structuredDataPlan": {
+      "enabled": true,
+      "timeoutSeconds": 10,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "callerName": {
+            "type": "string",
+            "description": "Full name of the caller"
+          },
+          "callerPhone": {
+            "type": "string",
+            "description": "Phone number"
+          },
+          "callerEmail": {
+            "type": "string",
+            "description": "Email address"
+          },
+          "callerRole": {
+            "type": "string",
+            "description": "Their role: buyer, seller, tenant, landlord, investor"
+          },
+          "company": {
+            "type": "string",
+            "description": "Company name if mentioned"
+          },
+          "inquiryType": {
+            "type": "string",
+            "description": "Type: buying, selling, leasing, investment"
+          },
+          "assetType": {
+            "type": "string",
+            "description": "Property type: office, retail, industrial, multifamily, land"
+          },
+          "location": {
+            "type": "string",
+            "description": "Desired location"
+          },
+          "dealSize": {
+            "type": "string",
+            "description": "Budget or property value"
+          },
+          "squareFootage": {
+            "type": "string",
+            "description": "Size needed"
+          },
+          "urgency": {
+            "type": "string",
+            "description": "Timeline: immediate, 1-3 months, 3-6 months, exploring"
+          },
+          "additionalDetails": {
+            "type": "string",
+            "description": "Other important details"
+          }
+        }
+      }
+    }
+  }
+}
