@@ -1,0 +1,25 @@
+[
+  {
+    "call_id": "019a4d68-81e9-7dd3-8e5f-44c3ddd6311b",
+    "timestamp": "2025-11-04 11:18:58.652867",
+    "caller_info": {
+      "name": null,
+      "phone": null,
+      "email": null,
+      "role": "buyer",
+      "company": "Premium Brokers Inc."
+    },
+    "property_details": {
+      "asset_type": null,
+      "location": null,
+      "deal_size": null,
+      "square_footage": null,
+      "urgency": null,
+      "additional_details": "Caller wants to buy a home. AI clarified that the company specializes in commercial real estate and asked if it's for a personal residence or investment property, but the caller did not specify further."
+    },
+    "inquiry_type": "buying",
+    "conversation_summary": "A user contacted Premium Brokers Inc. expressing interest in buying a home. The AI agent clarified that the company specializes in commercial real estate but offered to assist or redirect the user, asking for more details on whether it was for a personal residence or investment property before the call ended.",
+    "duration": null,
+    "recording_url": "https://storage.vapi.ai/019a4d68-81e9-7dd3-8e5f-44c3ddd6311b-1762235335454-50aead45-a0aa-4ec6-b163-cfc9e0b2d54d-mono.wav"
+  }
+]
