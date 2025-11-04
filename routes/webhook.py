@@ -134,4 +134,3 @@ async def get_sheets_url():
     if url:
         return {"url": url, "status": "connected"}
     return {"url": None, "status": "not_configured"}
-        raise HTTPException(status_code=500, detail=str(e))
