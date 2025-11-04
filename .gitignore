@@ -205,7 +205,10 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+<<<<<<< HEAD
 
 
 # credentials
 google_credentials.json
+=======
+>>>>>>> 311d9addefbd58c25275b59c0a21351589bfb2c1

@@ -3,6 +3,10 @@ uvicorn
 pydantic
 python-dotenv
 httpx
+<<<<<<< HEAD
 pydantic-settings
 gspread
 google-auth
+=======
+pydantic-settings
+>>>>>>> 311d9addefbd58c25275b59c0a21351589bfb2c1
