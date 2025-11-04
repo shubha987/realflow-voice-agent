@@ -35,12 +35,12 @@ class GoogleSheetsService:
                 self.sheet = self.client.open_by_key(self.spreadsheet_id).sheet1
             
         except Exception as e:
-            print(f"❌ Error initializing Google Sheets: {e}")
+            print(f" Error initializing Google Sheets: {e}")
     
     def log_call(self, conversation_data: Dict[str, Any]):
         """Log call data to Google Sheet"""
         if not self.sheet:
-            print("⚠️  Google Sheets not configured, skipping...")
+            print(" Google Sheets not configured, skipping...")
             return
         
         try:
@@ -67,11 +67,11 @@ class GoogleSheetsService:
             
             # Append to sheet
             self.sheet.append_row(row)
-            print(f"✅ Call logged to Google Sheets: {conversation_data.get('call_id')}")
+            print(f" Call logged to Google Sheets: {conversation_data.get('call_id')}")
             
         except Exception as e:
-            print(f"❌ Error logging to Google Sheets: {e}")
-    
+            print(f" Error logging to Google Sheets: {e}")
+
     def create_header_row(self):
         """Create header row in Google Sheet"""
         if not self.sheet:
@@ -108,6 +108,6 @@ class GoogleSheetsService:
                     "textFormat": {"bold": True, "foregroundColor": {"red": 1, "green": 1, "blue": 1}},
                     "horizontalAlignment": "CENTER"
                 })
-                print("✅ Header row created in Google Sheet")
+                print(" Header row created in Google Sheet")
         except Exception as e:
-            print(f"❌ Error creating header: {e}")
+            print(f"Error creating header: {e}")

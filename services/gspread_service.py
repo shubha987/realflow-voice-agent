@@ -51,7 +51,7 @@ class GoogleSheetsLogger:
                 self._setup_headers()
             
         except Exception as e:
-            print(f"❌ Google Sheets initialization error: {str(e)}")
+            print(f"Google Sheets initialization error: {str(e)}")
     
     def _setup_headers(self):
         """Setup spreadsheet headers"""
@@ -87,7 +87,7 @@ class GoogleSheetsLogger:
     def log_call(self, conversation_data: Dict[str, Any]) -> bool:
         """Log call data to Google Sheets"""
         if not self.sheet:
-            print("⚠️ Google Sheets not initialized")
+            print("Google Sheets not initialized")
             return False
         
         try:
@@ -116,11 +116,11 @@ class GoogleSheetsLogger:
             ]
             
             self.sheet.append_row(row_data)
-            print(f"✅ Logged to Google Sheets: {conversation_data.get('call_id')}")
+            print(f"Logged to Google Sheets: {conversation_data.get('call_id')}")
             return True
             
         except Exception as e:
-            print(f"❌ Error logging to Google Sheets: {str(e)}")
+            print(f"Error logging to Google Sheets: {str(e)}")
             return False
     
     def get_spreadsheet_url(self) -> str:

@@ -22,8 +22,8 @@ class VapiService:
             
             # Print response for debugging
             if response.status_code != 200 and response.status_code != 201:
-                print(f"\n❌ Response Status: {response.status_code}")
-                print(f"❌ Response Body: {response.text}")
+                print(f"\n Response Status: {response.status_code}")
+                print(f" Response Body: {response.text}")
             
             response.raise_for_status()
             return response.json()
@@ -38,8 +38,8 @@ class VapiService:
             )
             
             if response.status_code != 200:
-                print(f"\n❌ Response Status: {response.status_code}")
-                print(f"❌ Response Body: {response.text}")
+                print(f"\n Response Status: {response.status_code}")
+                print(f" Response Body: {response.text}")
             
             response.raise_for_status()
             return response.json()

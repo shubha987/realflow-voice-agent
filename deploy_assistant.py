@@ -36,9 +36,9 @@ async def deploy_assistant():
     config["firstMessage"] = f"Hello! This is Realflow for {brokerage_name}. How can I help you today?"
     
     print("=" * 60)
-    print("🚀 DEPLOYING VAPI ASSISTANT")
+    print(" DEPLOYING VAPI ASSISTANT")
     print("=" * 60)
-    print(f"\n📋 Configuration:")
+    print(f"\n Configuration:")
     print(f"   Brokerage: {brokerage_name}")
     print(f"   Webhook URL: {config['serverUrl']}")
     print(f"   Voice: Cartesia Sonic")
@@ -47,16 +47,16 @@ async def deploy_assistant():
     # Save config for debugging
     with open("debug_config.json", 'w') as f:
         json.dump(config, f, indent=2)
-    print(f"\n💾 Full config saved to: debug_config.json")
+    print(f"\n Full config saved to: debug_config.json")
     
     try:
         # Check if assistant already exists
         existing_id = os.getenv("VAPI_ASSISTANT_ID")
         
         if existing_id:
-            print(f"\n🔄 Updating existing assistant: {existing_id}")
+            print(f"\n Updating existing assistant: {existing_id}")
             result = await vapi.update_assistant(existing_id, config)
-            print(f"✅ Assistant updated successfully!")
+            print(f" Assistant updated successfully!")
         else:
             print(f"\n✨ Creating new assistant...")
             result = await vapi.create_assistant(config)
@@ -64,10 +64,10 @@ async def deploy_assistant():
             
             # Save assistant ID to .env
             set_key(".env", "VAPI_ASSISTANT_ID", assistant_id)
-            
-            print(f"✅ Assistant created successfully!")
-            print(f"🆔 Assistant ID: {assistant_id}")
-        
+
+            print(f" Assistant created successfully!")
+            print(f" Assistant ID: {assistant_id}")
+
         print(f"\n📞 Next Steps:")
         print(f"   1. Go to https://dashboard.vapi.ai/phone-numbers")
         print(f"   2. Click on your phone number")
@@ -78,18 +78,18 @@ async def deploy_assistant():
         return result
     
     except Exception as e:
-        print(f"\n❌ Error deploying assistant: {str(e)}")
+        print(f"\n Error deploying assistant: {str(e)}")
         
         # Try to get more error details
         if hasattr(e, 'response'):
             try:
                 error_detail = e.response.json()
-                print(f"\n📋 Error Details:")
+                print(f"\n Error Details:")
                 print(json.dumps(error_detail, indent=2))
             except:
-                print(f"\n📋 Response Text: {e.response.text if hasattr(e.response, 'text') else 'N/A'}")
-        
-        print(f"\n💡 Debug steps:")
+                print(f"\n Response Text: {e.response.text if hasattr(e.response, 'text') else 'N/A'}")
+
+        print(f"\nDebug steps:")
         print(f"   1. Check debug_config.json for the full configuration")
         print(f"   2. Verify your API key is correct")
         print(f"   3. Check Vapi docs: https://docs.vapi.ai/api-reference/assistants/create-assistant")
