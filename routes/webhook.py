@@ -1,10 +1,7 @@
 from fastapi import APIRouter, HTTPException, Request, Header
 from models.schemas import VapiWebhook, WebhookResponse, ConversationData, CallerInfo, PropertyDetails
 from utils.logger import setup_logger, log_conversation
-<<<<<<< HEAD
 from services.gspread_service import GoogleSheetsLogger
-=======
->>>>>>> 311d9addefbd58c25275b59c0a21351589bfb2c1
 from datetime import datetime
 import os
 import hmac
@@ -12,10 +9,7 @@ import hashlib
 
 router = APIRouter()
 logger = setup_logger()
-<<<<<<< HEAD
 sheets_logger = GoogleSheetsLogger()
-=======
->>>>>>> 311d9addefbd58c25275b59c0a21351589bfb2c1
 
 def verify_webhook_signature(payload: bytes, signature: str) -> bool:
     """Verify Vapi webhook signature"""
@@ -33,13 +27,10 @@ async def handle_vapi_webhook(
         body = await request.body()
         
         # Verify signature (optional but recommended)
-<<<<<<< HEAD
         # if x_vapi_signature and not verify_webhook_signature(body, x_vapi_signature):
         #     raise HTTPException(status_code=401, detail="Invalid signature")
-=======
         if x_vapi_signature and not verify_webhook_signature(body, x_vapi_signature):
             raise HTTPException(status_code=401, detail="Invalid signature")
->>>>>>> 311d9addefbd58c25275b59c0a21351589bfb2c1
         
         webhook_data = await request.json()
         message = webhook_data.get("message", {})
@@ -98,7 +89,6 @@ async def handle_end_of_call(message: dict) -> WebhookResponse:
             recording_url=message.get("recordingUrl")
         )
         
-<<<<<<< HEAD
         # Convert to dict for logging
         conversation_dict = conversation_data.model_dump()
         
@@ -107,10 +97,8 @@ async def handle_end_of_call(message: dict) -> WebhookResponse:
         
         # Log to Google Sheets
         sheets_logger.log_call(conversation_dict)
-=======
         # Log to JSON file
         log_conversation(conversation_data.model_dump())
->>>>>>> 311d9addefbd58c25275b59c0a21351589bfb2c1
         
         logger.info(f"Call {call_id} processed successfully")
         logger.info(f"Caller: {caller_info.name} ({caller_info.email})")
@@ -137,7 +125,6 @@ async def get_conversations():
     except FileNotFoundError:
         return {"conversations": [], "count": 0}
     except Exception as e:
-<<<<<<< HEAD
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/sheets-url")
@@ -147,6 +134,4 @@ async def get_sheets_url():
     if url:
         return {"url": url, "status": "connected"}
     return {"url": None, "status": "not_configured"}
-=======
         raise HTTPException(status_code=500, detail=str(e))
->>>>>>> 311d9addefbd58c25275b59c0a21351589bfb2c1
